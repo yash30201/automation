@@ -19,7 +19,7 @@ if [ -z "$2" ]
         dockerContainer=$2
 fi
 
-sudo docker run \
+docker run \
 -ti --rm --privileged \
 --volume $DOCKER_DIRECTORY_PATH_TO_MOUNT:/var/www/http/$DOCKER_MOUNT_FOLDER_NAME \
 --workdir=/var/www/http/$DOCKER_MOUNT_FOLDER_NAME \
