@@ -1,0 +1,6 @@
+export DOCKER_DIRECTORY_PATH_TO_MOUNT='<Folder to work upon>'
+export DOCKER_MOUNT_FOLDER_NAME='<Mounted folder name to show in docker>'
+export DOCKER_ENV_FILE_PATH='<Env file containing requried env variables wrt to docker, not local>'
+export DOCKER_SERVICE_ACCOUNTS_PATH='<Local service acccounts folder>'
+export DOCKER_CONTAINER_NAME='<Container name>'
+export DOCKER_IMAGE_NAME='<Docker image to create container from>'

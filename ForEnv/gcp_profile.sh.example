@@ -1,0 +1,36 @@
+# -----------------------------------
+# Google cloud specific env variables
+# -----------------------------------
+
+# General purpose variables
+export GOOGLE_APPLICATION_CREDENTIALS='<YOUR VALUE>'
+export GOOGLE_CLOUD_PHP_TESTS_KEY_PATH='<YOUR VALUE>'
+export GOOGLE_CLOUD_PHP_WHITELIST_TESTS_KEY_PATH='<YOUR VALUE>'
+export GOOGLE_PROJECT_ID='<YOUR VALUE>'
+export GOOGLE_CLOUD_PROJECT='<YOUR VALUE>'
+
+# Bigtable variables
+# export GOOGLE_CLOUD_BIGTABLE_PROJECT='<YOUR VALUE>'
+# export GOOGLE_CLOUD_BIGTABLE_DESTINATION_PROJECT_ID='<YOUR VALUE>'
+
+# Google Cloud Storage specific env variables
+# export GOOGLE_STORAGE_BUCKET='<YOUR VALUE>'
+# export GOOGLE_CLOUD_STORAGE_EMULATOR_URL='<YOUR VALUE>'
+
+# Spanner specific env variables
+# export GOOGLE_SPANNER_INSTANCE_ID='<YOUR VALUE>'
+# export GOOGLE_APPLICATION_CREDENTIALS='<YOUR VALUE>'
+# export GOOGLE_PROJECT_ID='<YOUR VALUE>'
+# export GOOGLE_CLOUD_PROJECT='<YOUR VALUE>'
+
+# Firestore specific env  variables
+# export GOOGLE_CLOUD_PHP_FIRESTORE_TESTS_KEY_PATH='<YOUR VALUE>'
+# export FIRESTORE_EMULATOR_HOST='<YOUR VALUE>'
+
+# Datastore specific env variables
+# export GOOGLE_APPLICATION_CREDENTIALS='<YOUR VALUE>'
+# export GOOGLE_PROJECT_ID='<YOUR VALUE>'
+# export GOOGLE_CLOUD_PROJECT='<YOUR VALUE>'
+# export PROJECT_ID='<YOUR VALUE>'
+# export GOOGLE_CLOUD_PHP_TESTS_KEY_PATH='<YOUR VALUE>'
+# export DATASTORE_EMULATOR_HOST='<YOUR VALUE>'
