@@ -1,0 +1,4 @@
+echo 'Automation profile loaded.'
+
+export AUTOMATION="Your automation directory path"
+export GOOGLEAPIS_PATH="your google apis path"

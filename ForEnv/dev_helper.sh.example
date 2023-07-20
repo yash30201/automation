@@ -1,0 +1,31 @@
+CUR_DIR=$(pwd)
+
+// To run php cs fixer
+// Shows the fixes that can be made
+// Fixes them if user wants that
+phpfix () {(
+    INDEX=${#GOOGLE_CLOUD_PHP}
+    INDEX=$((INDEX+1))
+    RELATIVE_DIR=${CUR_DIR:INDEX}
+    cd $GOOGLE_CLOUD_PHP
+    echo "Running: phpcs --standard=phpcs-ruleset.xml $RELATIVE_DIR"
+    phpcs --standard=phpcs-ruleset.xml $RELATIVE_DIR
+    read -p "Do you want to fix? (Y/N): " confirm
+    if [[ $confirm == [yY] ]]
+    then
+        echo "Running: phpcbf --standard=phpcs-ruleset.xml $RELATIVE_DIR"
+        phpcbf --standard=phpcs-ruleset.xml $RELATIVE_DIR
+    fi
+)}
+
+// Intended to be run from being inside your google-cloud-php fork
+// This checks out to main, updates everything, switches to current
+// branch, merges the changes of main
+update_repo() {
+    cd $GOOGLE_CLOUD_PHP
+    current_branch=$(git rev-parse --abbrev-ref HEAD)
+    git checkout main
+    git pull upstream main
+    git checkout $current_branch
+    git merge main
+}
