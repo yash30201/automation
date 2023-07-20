@@ -18,6 +18,31 @@ phpfix () {(
     fi
 )}
 
+phpstatic () {(
+    CUR_DIR=$(pwd)
+    cd $GOOGLE_CLOUD_PHP
+    composer --no-interaction --no-ansi --no-progress update
+    composer --no-interaction --no-ansi --no-progress update -d dev
+
+    INDEX=${#GOOGLE_CLOUD_PHP}
+    INDEX=$((INDEX+1))
+    RELATIVE_DIR=${CUR_DIR:INDEX}
+    # Create a temporary bootstrap file that combines the autoloader of the project and the dev autoloader
+    TMPDIR=$(mktemp -d 2>/dev/null || mktemp -d -t 'mytmpdir')
+    echo "<?php require 'vendor/autoload.php';require 'dev/vendor/autoload.php';" > $TMPDIR/phpstan-bootstrap.php
+
+    # Run phpstan
+    echo "Running phpstan on $RELATIVE_DIR";
+    dev/vendor/bin/phpstan analyse $RELATIVE_DIR/src --autoload-file=$TMPDIR/phpstan-bootstrap.php
+
+    metadata=$(cd $RELATIVE_DIR && ls | grep metadata)
+    metadata=${#metadata}
+    if [[ $metadata -ne 0 ]]
+    then
+        dev/vendor/bin/phpstan analyse $RELATIVE_DIR/src --autoload-file=$TMPDIR/phpstan-bootstrap.php
+    fi
+)}
+
 // Intended to be run from being inside your google-cloud-php fork
 // This checks out to main, updates everything, switches to current
 // branch, merges the changes of main
