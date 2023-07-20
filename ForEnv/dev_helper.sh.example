@@ -43,6 +43,11 @@ phpstatic () {(
     fi
 )}
 
+phpgod () {
+    phpfix
+    phpstatic
+}
+
 // Intended to be run from being inside your google-cloud-php fork
 // This checks out to main, updates everything, switches to current
 // branch, merges the changes of main
